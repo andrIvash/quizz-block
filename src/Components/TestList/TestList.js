@@ -3,23 +3,24 @@ import PropTypes from 'prop-types';
 
 class TestList extends Component {
 
+  static propTypes = {
+     tests: PropTypes.array.isRequired,
+  };
+
   render() {
-
-    const listItems = [1,2,3].map(item =>
-      <li key={item.toString()}>
-        {item}
-      </li>
-    );
-    return (
+    const { tests } = this.props;
+    return(
       <ul>
-        {listItems}
+        {
+          tests.map(item =>
+            <li key={item.toString()}>
+              {item}
+            </li>
+          )
+        }
       </ul>
-    );
+    )
   }
-
 }
-
-TestList.propTypes = {};
-TestList.defaultProps = {};
 
 export default TestList;
